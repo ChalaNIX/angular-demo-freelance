@@ -5,12 +5,16 @@ import {RegisterComponent} from "./auth/register/register.component";
 import {IndexComponent} from "./layout/index/index.component";
 import {AuthGuardService} from "./helper/auth-guard.service";
 import {JobComponent} from "./job/job/job.component";
+import {ProfileComponent} from "./user/profile/profile.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'main', component: IndexComponent, canActivate: [AuthGuardService]},
   {path: 'job/:id', component: JobComponent, canActivate: [AuthGuardService]},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService], children: [
+
+    ]},
   {path: '', redirectTo: "main", pathMatch: 'full'}
 ];
 

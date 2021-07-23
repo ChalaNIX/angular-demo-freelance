@@ -1,1 +1,31 @@
-<p>profile works!</p>
+<div *ngIf="isDataLoaded" class="user-profile">
+
+  <h1>Profile</h1>
+  <div style="text-align: right">
+    <button mat-flat-button color="primary" (click)="openEditDialog()">Edit Info</button>
+    <button mat-flat-button color="primary" routerLink="/main">Close profile</button>
+  </div>
+
+  <div style="padding-top: 2rem" class="row">
+    <div class="col">
+      <img class="profile-image" [src]="previewImageUrl || formatImage(userProfileImage) || 'https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png'" alt="user image">
+
+      <input type="file" style="display: none" #fileInput (change)="onFileSelected($event)">
+
+      <button mat-button (click)="fileInput.click()">Pick File</button>
+      <button mat-button *ngIf="selectedFile" (click)="onUpload()">Upload</button>
+    </div>
+    <div class="col" style="text-align: left">
+
+      <h2>{{user.username}}</h2>
+
+      <h3 style="font-style: italic">{{user.name}} {{user.lastname}}</h3>
+    </div>
+
+    <mat-divider style="margin: 2rem 0"></mat-divider>
+
+    <router-outlet></router-outlet>
+
+  </div>
+
+</div>

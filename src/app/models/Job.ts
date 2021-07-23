@@ -7,4 +7,5 @@ export interface Job {
   comments: Comment[];
   noOfComments: number;
   username: string;
+  price: number;
 }

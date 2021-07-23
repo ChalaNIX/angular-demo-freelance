@@ -39,20 +39,27 @@ export class RegisterComponent implements OnInit {
   }
 
   submit(): void {
+    console.log(this.registerForm.value.name);
+    console.log(this.registerForm.value.lastname);
     this.authService.register({
       username: this.registerForm.value.username,
-      name: this.registerForm.value.name,
-      lastname: this.registerForm.value.lastname,
       password: this.registerForm.value.password,
       confirmPassword: this.registerForm.value.confirmPassword
     }).subscribe((data: any) => {
       console.log(data);
-      this.notificationService.showSnackBar("Registered successfully!")
-      window.location.reload();
+      this.notificationService.showSnackBar("Registered successfully!");
+
+      function delay(ms : number) {
+        return new Promise( resolve => setTimeout(resolve, ms) );
+      }
+      (async () => {
+        await delay(3000);
+        this.router.navigate(['/login'])
+
+      })();
     }, (error: any) => {
       console.log(error);
       this.notificationService.showSnackBar(error);
     })
   }
-
 }
