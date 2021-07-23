@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {User} from "../models/User";
 
 const AUTH_API = "http://localhost:8080/api/auth/"
 
@@ -11,11 +10,9 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public register(user: User): any {
+  public register(user: {username: string, password: string, confirmPassword: string}): any {
     return this.httpClient.post(AUTH_API + "signup", {
       username: user.username,
-      name: user.name,
-      lastname: user.lastname,
       password: user.password,
       confirmPassword: user.confirmPassword
     })
