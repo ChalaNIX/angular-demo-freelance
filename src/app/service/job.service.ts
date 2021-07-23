@@ -27,4 +27,8 @@ export class JobService {
   deleteJob(id: number) : Observable<any> {
     return this.httpClient.post(JOB_API + "delete" + id, null);
   }
+
+  getJobById(id: number) : Observable<any> {
+    return this.httpClient.get(JOB_API + id);
+  }
 }

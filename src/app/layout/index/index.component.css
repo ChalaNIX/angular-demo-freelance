@@ -1,0 +1,12 @@
+.index-page {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  padding-top: 3rem;
+}
+
+.job-card {
+  display: block;
+  margin: 2rem auto;
+  width: 80%;
+}

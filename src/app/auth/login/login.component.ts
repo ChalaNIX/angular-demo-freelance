@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  public loginForm: FormGroup;
+  public loginForm!: FormGroup;
 
   constructor(private authService: AuthService,
               private tokenStorageService: TokenStorageService,
