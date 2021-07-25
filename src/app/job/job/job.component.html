@@ -1,3 +1,20 @@
-<div *ngIf="isDataLoaded" class="index-page">
-  <!-- todo -->
+<div *ngIf="isDataLoaded" class="job-page">
+  <mat-card class="job-card">
+    <mat-card-header style="text-align: left">
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-subtitle align="start">Posted by {{job.user}}</mat-card-subtitle>
+      <mat-card-title>{{job.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-subtitle align="end">Comments: {{job.noOfComments}}</mat-card-subtitle>
+    <mat-card-content>
+      <p>{{job.description}}</p>
+    </mat-card-content>
+
+  </mat-card>
+  <div class="comments">
+    <div class="comment" *ngFor="let comment of job.comments">
+      <span class="date">{{comment.commentDate}}</span> {{comment.username}} commented:
+      <p>{{comment.message}}</p>
+    </div>
+  </div>
 </div>

@@ -21,14 +21,12 @@ export class IndexComponent implements OnInit {
 
   constructor(private jobService: JobService,
               private userService: UserService,
-              private commentService: CommentService,
               private router: Router) { }
 
   ngOnInit(): void {
     this.jobService.getAllJobs()
       .subscribe(data => {
         this.jobs = data;
-        this.getJobComments(this.jobs);
         this.isJobLoaded = true;
       });
 
@@ -37,19 +35,5 @@ export class IndexComponent implements OnInit {
         this.user = data;
         this.isUserDataLoaded = true;
       })
-  }
-
-  getJobComments(jobs: Job[]): void {
-    jobs.forEach(job => {
-      this.commentService.getAllCommentsForJob(job.id).
-      subscribe(data => {
-        job.comments = data;
-        job.noOfComments = job.comments.length;
-      })
-    })
-  }
-
-  viewDetails(jobId: number) : void {
-    this.router.navigate(["/job"]);
   }
 }

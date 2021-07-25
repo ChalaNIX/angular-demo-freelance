@@ -11,6 +11,7 @@ import {CommentService} from "../../service/comment.service";
 })
 export class JobComponent implements OnInit {
 
+  id!: string;
   job!: Job;
   isDataLoaded = false;
 
@@ -20,23 +21,48 @@ export class JobComponent implements OnInit {
 
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe(params => {
-      let id = params.get("id");
       // @ts-ignore
-      this.jobService.getJobById(id)
-        .subscribe(data => {
-          this.job = data;
-          console.log(data);
-        });
-
-      // @ts-ignore
-      this.commentService.getAllCommentsForJob(id)
-        .subscribe(data => {
-          this.job.comments = data;
-          console.log(data);
-        })
+      this.id = params.get('id');
     });
+    this.jobService.getJobById(this.id)
+      .subscribe(data => {
+        console.log("Job by id: " + data);
+        this.job = data;
+      });
+    this.commentService.getAllCommentsForJob(this.id)
+      .subscribe(data => {
+        console.log("comments: " + data);
+        this.job.comments = data;
+        this.job.comments.forEach(comment => {
+          comment.commentDate = this.timeSince(comment.commentDate) + ' ago';
+        })
+      })
     this.isDataLoaded = true;
   }
 
-
+  private timeSince(date : string) : string {
+    // @ts-ignore
+    var seconds = Math.floor((new Date() - new Date(date)) / 1000);
+    var interval = seconds / 31536000;
+    if (interval > 1) {
+      return Math.floor(interval) + " years";
+    }
+    interval = seconds / 2592000;
+    if (interval > 1) {
+      return Math.floor(interval) + " months";
+    }
+    interval = seconds / 86400;
+    if (interval > 1) {
+      return Math.floor(interval) + " days";
+    }
+    interval = seconds / 3600;
+    if (interval > 1) {
+      return Math.floor(interval) + " hours";
+    }
+    interval = seconds / 60;
+    if (interval > 1) {
+      return Math.floor(interval) + " minutes";
+    }
+    return Math.floor(seconds) + " seconds";
+  }
 }

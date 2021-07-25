@@ -6,6 +6,6 @@ export interface Job {
   description: number;
   comments: Comment[];
   noOfComments: number;
-  username: string;
+  user: string;
   price: number;
 }

@@ -18,7 +18,7 @@ export class EditProfileComponent implements OnInit {
               private dialogRef: MatDialogRef<EditProfileComponent>,
               private formBuilder: FormBuilder,
               private notificationService: NotificationService,
-              @Inject(MAT_DIALOG_DATA) public data) { }
+              @Inject(MAT_DIALOG_DATA) public data : any) { }
 
   ngOnInit(): void {
     this.profileEditForm = this.createEditForm();

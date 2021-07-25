@@ -1,9 +1,10 @@
 <div *ngIf="isUserJobsDataLoaded" xmlns="http://www.w3.org/1999/html">
   <div style="text-align: right">
-    <button mat-flat-button color="primary" routerLink="/profile/add">Add Post</button>
+    <button mat-flat-button color="primary" routerLink="/profile/add-job">Add job</button>
   </div>
 
-  <h2>{{jobs.length}} Posts</h2>
+  <h2 *ngIf="jobs.length > 0">You have {{jobs.length}} jobs</h2>
+  <h2 *ngIf="jobs.length == 0">You don't have jobs. Wanna create new?</h2>
 
   <mat-card class="post-card" *ngFor="let job of jobs; let i = index">
     <mat-card-header style="text-align: left">
