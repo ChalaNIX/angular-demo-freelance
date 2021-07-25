@@ -11,3 +11,67 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-outline-gap {
   border-top-color: currentColor !important;
 }
+
+.mat-toolbar.mat-primary {
+  background: #371a6d;
+  color: #fff;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 16px;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: 64px;
+}
+
+.mat-toolbar, .mat-toolbar h1, .mat-toolbar h2, .mat-toolbar h3, .mat-toolbar h4, .mat-toolbar h5, .mat-toolbar h6 {
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal;
+  margin: 0;
+}
+
+.cdk-overlay-container {
+  position: fixed;
+  z-index: 1000;
+}
+
+.cdk-overlay-container, .cdk-global-overlay-wrapper {
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+
+.cdk-overlay-connected-position-bounding-box {
+  position: absolute;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  min-width: 1px;
+  min-height: 1px;
+  top: 52px;
+  right: 16px;
+  height: 896px;
+  width: 1051px;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.cdk-overlay-pane {
+  position: static;
+  pointer-events: auto;
+  box-sizing: border-box;
+  z-index: 1000;
+  display: flex;
+  max-width: 100%;
+  max-height: 100%;
+}

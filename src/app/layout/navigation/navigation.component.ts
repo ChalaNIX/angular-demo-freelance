@@ -25,7 +25,6 @@ export class NavigationComponent implements OnInit {
       this.userService.getCurrentUser()
         .subscribe(data => {
           this.user = data;
-          console.log(this.user);
           this.isDataLoaded = true;
         })
     }

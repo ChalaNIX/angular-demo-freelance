@@ -1,0 +1,16 @@
+.job-card {
+  display: block;
+  margin: 2rem auto;
+  width: 80%;
+}
+
+.comment {
+  display: block;
+  margin: 2rem auto;
+  width: 80%;
+}
+
+
+.date {
+  font-style: italic!important;
+}
