@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Job} from "../models/Job";
+import {environment} from "../../environments/environment";
 
-const JOB_API = "http://localhost:8080/api/job/"
+const JOB_API = environment.api + "/job/"
 
 @Injectable({
   providedIn: 'root'
