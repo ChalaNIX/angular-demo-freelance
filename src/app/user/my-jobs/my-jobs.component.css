@@ -1,0 +1,20 @@
+.my-jobs {
+  display: block;
+  margin: 0 auto;
+  text-align: left;
+  padding-top: 3rem;
+}
+
+.job-card {
+  display: block;
+  margin: 2rem auto;
+  width: 80%;
+}
+
+h2 {
+  text-align: center;
+}
+
+.price:after {
+  content: "$";
+}

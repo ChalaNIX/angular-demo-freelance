@@ -10,9 +10,5 @@
 }
 
 mat-form-field {
-  width: 40%;
-}
-
-input {
-  caret-color: #3656f4;
+  width: 50%;
 }

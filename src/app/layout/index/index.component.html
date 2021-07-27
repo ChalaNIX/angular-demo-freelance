@@ -5,15 +5,15 @@
       <mat-card-subtitle align="start">Posted by {{job.user}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-subtitle align="end">Comments: {{job.noOfComments}}</mat-card-subtitle>
+    <mat-card-subtitle class="price">Price {{job.price}}</mat-card-subtitle>
     <mat-card-content>
       <p>{{job.description}}</p>
     </mat-card-content>
 
     <mat-card-actions align="start">
-      <!-- todo -->
-      <a *ngIf="isJobLoaded" [routerLink]="['/job', job.id]">
-        <mat-icon>info</mat-icon>View details
-      </a>
+      <button mat-button [routerLink]="['/job', job.id]">
+        <mat-icon>info</mat-icon> View info
+      </button>
     </mat-card-actions>
 
   </mat-card>

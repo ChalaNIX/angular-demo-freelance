@@ -1,20 +1,47 @@
 <div *ngIf="isDataLoaded" class="job-page">
+  <div style="text-align: right">
+    <button mat-flat-button color="primary" routerLink="/main">Close job details</button>
+  </div>
+
   <mat-card class="job-card">
     <mat-card-header style="text-align: left">
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-subtitle align="start">Posted by {{job.user}}</mat-card-subtitle>
       <mat-card-title>{{job.title}}</mat-card-title>
+      <mat-card-subtitle align="start" class="price">Price {{job.price}}</mat-card-subtitle>
     </mat-card-header>
-    <mat-card-subtitle align="end">Comments: {{job.noOfComments}}</mat-card-subtitle>
     <mat-card-content>
       <p>{{job.description}}</p>
     </mat-card-content>
 
+    <form [formGroup]="commentForm">
+      <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Leave a comment</mat-label>
+        <textarea matInput formControlName="message"></textarea>
+      </mat-form-field>
+    </form>
+    <div style="text-align: right">
+      <button mat-flat-button color="primary" [disabled]="commentForm.invalid" (click)="submit()">
+        Leave comment
+      </button>
+    </div>
   </mat-card>
+
   <div class="comments">
-    <div class="comment" *ngFor="let comment of job.comments">
-      <span class="date">{{comment.commentDate}}</span> {{comment.username}} commented:
-      <p>{{comment.message}}</p>
+    <div class="comments" *ngFor="let comment of job.comments">
+      <mat-card class="comment-card">
+        <!--        <mat-card-header style="text-align: left">-->
+        <mat-card-subtitle align="start">
+          <span >added by {{comment.username}}</span>
+        </mat-card-subtitle>
+        <mat-card-subtitle align="end">
+          <span>{{comment.commentDate}} ago</span>
+        </mat-card-subtitle>
+        <!--        </mat-card-header>-->
+        <mat-card-content>
+          <p>{{comment.message}}</p>
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
 </div>

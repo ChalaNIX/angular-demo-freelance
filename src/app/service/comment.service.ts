@@ -11,7 +11,7 @@ export class CommentService {
 
   constructor(private httpClient: HttpClient) { }
 
-  createComment(jobId: number, message: string) : Observable<any> {
+  createComment(jobId: string, message: string) : Observable<any> {
     return this.httpClient.post(COMMENT_API + jobId + "/create", {
       message: message
     })
@@ -19,9 +19,5 @@ export class CommentService {
 
   getAllCommentsForJob(jobId: string) : Observable<any> {
     return this.httpClient.get(COMMENT_API + jobId + "/all");
-  }
-
-  deleteComment(commentId: number) : Observable<any> {
-    return this.httpClient.post(COMMENT_API + commentId + "/delete", null);
   }
 }

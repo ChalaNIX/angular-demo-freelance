@@ -4,6 +4,9 @@
   width: 60%;
   padding-top: 3rem;
 }
+.mat-icon {
+  color: #673ab7;
+}
 
 .job-card {
   display: block;
@@ -11,7 +14,6 @@
   width: 80%;
 }
 
-.mat-cart-title {
-  font-size: 20px;
-  font-weight: 500;
+.price:after {
+  content: "$";
 }

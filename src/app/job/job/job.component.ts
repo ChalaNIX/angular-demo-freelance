@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Job} from "../../models/Job";
 import {JobService} from "../../service/job.service";
 import {CommentService} from "../../service/comment.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-job',
@@ -14,10 +15,13 @@ export class JobComponent implements OnInit {
   id!: string;
   job!: Job;
   isDataLoaded = false;
+  commentForm!: FormGroup;
 
   constructor(private _activatedRoute: ActivatedRoute,
               private jobService: JobService,
-              private commentService: CommentService) { }
+              private commentService: CommentService,
+              private formBuilder : FormBuilder,
+              private router: Router) { }
 
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe(params => {
@@ -37,7 +41,22 @@ export class JobComponent implements OnInit {
           comment.commentDate = this.timeSince(comment.commentDate) + ' ago';
         })
       })
+    this.commentForm = this.createCommentForm();
     this.isDataLoaded = true;
+  }
+
+  createCommentForm() : FormGroup {
+    return this.formBuilder.group({
+      message: ['', Validators.compose([Validators.required])]
+    })
+  }
+
+  submit() : void {
+    this.commentService.createComment(this.id, this.commentForm.value.message)
+      .subscribe(data => {
+        console.log(data);
+        window.location.reload();
+    })
   }
 
   private timeSince(date : string) : string {
