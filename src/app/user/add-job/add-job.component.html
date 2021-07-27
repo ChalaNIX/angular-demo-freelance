@@ -1,9 +1,9 @@
 <div>
   <div style="text-align: right">
-    <button mat-flat-button color="primary" routerLink="/profile">My Posts</button>
+    <button mat-flat-button color="primary" routerLink="/profile">Back</button>
   </div>
 
-  <h2>Create Post</h2>
+  <h2>Create Job</h2>
   <form [formGroup]="jobForm">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>Title</mat-label>
@@ -20,7 +20,7 @@
 
     <div style="text-align: right">
       <button mat-flat-button color="primary" [disabled]="jobForm.invalid" (click)="submit()">
-        Create Post
+        Create job
       </button>
     </div>
 

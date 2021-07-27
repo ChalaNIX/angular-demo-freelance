@@ -44,6 +44,7 @@ export class AddJobComponent implements OnInit {
       if (this.createdJob.id != null) {
         this.isJobCreated = true;
         this.router.navigate(['/profile']);
+        this.notificationService.showSnackBar("Job is created successfully!")
       }
     }, error => {
       console.log(error);

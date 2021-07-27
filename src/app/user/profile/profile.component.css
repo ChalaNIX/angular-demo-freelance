@@ -6,10 +6,6 @@
   padding-top: 3rem;
 }
 
-button.mat-flat-button {
-  margin: 10px;
-}
-
 .profile-image {
   border-radius: 50%;
   width: 150px;
@@ -18,4 +14,8 @@ button.mat-flat-button {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2rem;
+}
+
+button.mat-flat-button {
+  margin: 10px;
 }
