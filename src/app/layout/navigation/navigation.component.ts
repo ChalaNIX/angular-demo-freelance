@@ -32,7 +32,7 @@ export class NavigationComponent implements OnInit {
 
   logout(): void {
     this.tokenStorageService.logOut();
-    this.router.navigate(["/main"]);
+    this.router.navigate(["/home"]);
   }
 
 }
