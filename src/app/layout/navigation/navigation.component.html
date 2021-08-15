@@ -1,5 +1,6 @@
 <mat-toolbar color="primary">
-  <span routerLink="/main" style="cursor: pointer; margin-left: 20px">Freelance - feel free to test it with Selenium</span>
+  <span *ngIf="isLoggedIn" routerLink="/main" style="cursor: pointer; margin-left: 20px">Freelance - feel free to test it with Selenium</span>
+  <span *ngIf="!isLoggedIn" routerLink="/home" style="cursor: pointer; margin-left: 20px">Freelance - feel free to test it with Selenium</span>
   <span class="spacer"></span>
 
 <!--  <button *ngIf="!isLoggedIn" matTooltip="Login" routerLink="/login" mat-icon-button class="example-icon favorite-icon">-->

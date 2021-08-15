@@ -18,6 +18,7 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { MyJobsComponent } from './user/my-jobs/my-jobs.component';
 import { AddJobComponent } from './user/add-job/add-job.component';
+import { HomeComponent } from './layout/home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AddJobComponent } from './user/add-job/add-job.component';
     ProfileComponent,
     EditProfileComponent,
     MyJobsComponent,
-    AddJobComponent
+    AddJobComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
